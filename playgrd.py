@@ -1,14 +1,14 @@
 # Playground for Effective Python: 55 Specific Ways to Write Better Python
 
-# # * Tip 1: system info
+# # * Tip 1: Know Which Version of Python You're Using 
 # import sys
 
 # sys.version_info
 # sys.version
 
-# # * Tip 2: PEP 8
+# # * Tip 2: Follow the PEP8 Style Guide
 
-# # * Tip 3: Difference between bytes and str
+# # * Tip 3: Know the Differences Between bytes, str, and unicode
 # import os
 
 # def to_bytes(bytes_or_str):
@@ -30,7 +30,7 @@
 # with open('tmp.txt', 'w+') as f:
 #     f.write(to_str(os.urandom(10)))
 
-# # * Tip4: Use utility funcs to replace complicated exprs
+# # * Tip4: Write Helper Functions Instead of Complex Expressions
 # from urllib.parse import parse_qs
 
 # my_values = parse_qs('red=5&blue=0&green=',
@@ -54,4 +54,14 @@
 #         found = default
 #     return found
 
-# * Tip 5: Slicing seqs
+# * Tip 5: Know How to Slice Sequences
+
+# * Tip 6: Avoid Using start, end and stride in a Single Slice
+
+# * Tip 7: Use List Comprehensions Instead of map and filter
+
+# * Tip 8: Avoid More Than Two Expreesions in List Comprehensions
+
+# * Tip 9: Consider Generator Expressions for Large Comprehensions
+
+# * Tip 10: Prefer enumerate Over range
