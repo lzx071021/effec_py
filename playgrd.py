@@ -65,3 +65,13 @@
 # * Tip 9: Consider Generator Expressions for Large Comprehensions
 
 # * Tip 10: Prefer enumerate Over range
+
+# * Tip 11: Use zip to Process Iterators in Parallel 
+
+# * Tip 12: Avoid else Blocks After for and while Loops 
+
+# * Tip 13: Take advantage of Each Block in try, except, else, finally 
+
+# * Tip 14: Prefer Exceptions to Returning None
+
+# * Tip 15: Know How Closures Interact with Variable Scope
