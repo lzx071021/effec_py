@@ -1,6 +1,7 @@
 # Playground for Effective Python: 55 Specific Ways to Write Better Python
 
-# # * Tip 1: Know Which Version of Python You're Using 
+# Pythonic
+# # * Tip 1: Know Which Version of Python You're Using
 # import sys
 
 # sys.version_info
@@ -66,12 +67,86 @@
 
 # * Tip 10: Prefer enumerate Over range
 
-# * Tip 11: Use zip to Process Iterators in Parallel 
+# * Tip 11: Use zip to Process Iterators in Parallel
 
-# * Tip 12: Avoid else Blocks After for and while Loops 
+# * Tip 12: Avoid else Blocks After for and while Loops
 
-# * Tip 13: Take advantage of Each Block in try, except, else, finally 
+# * Tip 13: Take advantage of Each Block in try, except, else, finally
 
+# Chapter 2  Function
 # * Tip 14: Prefer Exceptions to Returning None
 
 # * Tip 15: Know How Closures Interact with Variable Scope
+
+# * Tip 16: Consider Generators Instead of Returning Lists
+# def index_file(handle):
+#     offset = 0
+#     for line in handle:
+#         if line:
+#             yield offset
+#         for letter in line:
+#             offset += 1
+#             if letter == ' ':
+#                 yield offset
+
+
+# text = 'Four score and seven years ago'
+# with open('tmp.txt', 'w') as f:
+#     f.write(text)
+
+# with open('tmp.txt', 'r') as f:
+#     it = index_file(f)
+#     print(list(it))
+
+
+# * Tip 17: Be Defensive When Iterating Over Arguments
+# def normalize(numbers):
+#     total = sum(numbers)
+#     result = []
+#     for value in numbers:
+#         percent = 100 * value / total
+#         result.append(percent)
+#     return result
+
+
+# def normalize_defensive(numbers):
+#     if iter(numbers) is iter(numbers):
+#         raise TypeError('Must supply a container !')
+#     total = sum(numbers)
+#     result = []
+#     for value in numbers:
+#         percent = 100 * value / total
+#         result.append(percent)
+#     return result
+
+
+# class ReadVisit:
+#     def __init__(self, datapath):
+#         self.datapath = datapath
+
+#     def __iter__(self):
+#         with open(self.datapath) as f:
+#             for line in f:
+#                 yield int(line)
+
+
+# def lines(numbers):
+#     result = [str(value) + '\n' for value in numbers]
+#     return result
+
+
+# visits = [15, 35, 80]
+
+
+# with open('visit_data.txt', 'w') as f:
+#     f.writelines(lines(visits))
+
+# print(normalize_defensive(visits))
+# new_visits = ReadVisit('visit_data.txt')
+# print(normalize_defensive(new_visits))
+
+# * Tip 18: Reduce Visual Noise with Variable Positional Arguments
+
+# * Tip 19: Provide Optional Behavior with Keyword Arguments
+
+# * Tip 20: Use None and Docstrings to Specify Dynamic Default Arguments
