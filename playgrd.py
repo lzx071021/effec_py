@@ -150,3 +150,91 @@
 # * Tip 19: Provide Optional Behavior with Keyword Arguments
 
 # * Tip 20: Use None and Docstrings to Specify Dynamic Default Arguments
+
+# * Tip 21: 用只能以关键字形式指定的参数来确保代码明晰
+
+# * Tip 22: 尽量用辅助类来维护程序的状态，而不要用字典和元组
+# from collections import namedtuple
+
+# Grade = namedtuple('Grade', ('score', 'weight'))
+
+
+# class Subject:
+#     def __init__(self):
+#         self._grades = []
+
+#     def report_grade(self, score, weight):
+#         self._grades.append(Grade(score, weight))
+
+#     def average_grade(self):
+#         total, total_weight = 0, .0
+#         for grade in self._grades:
+#             total += grade.score * grade.weight
+#             total_weight += grade.weight
+#         return total / total_weight
+
+
+# class Student:
+#     def __init__(self):
+#         self._subjects = {}
+
+#     def subject(self, name):
+#         if name not in self._subjects:
+#             self._subjects[name] = Subject()
+#         return self._subjects[name]
+
+#     def average_grade(self):
+#         total, count = 0, 0
+#         for subject in self._subjects.values():
+#             total += subject.average_grade()
+#             count += 1
+#         return total / count
+
+
+# class GradeBook:
+#     def __init__(self):
+#         self._students = {}
+
+#     def student(self, name):
+#         if name not in self._students:
+#             self._students[name] = Student()
+#         return self._students[name]
+
+
+# book = GradeBook()
+# albert = book.student('Albert Einstein')
+# math = albert.subject('Math')
+# math.report_grade(70, 0.3)
+# math.report_grade(80, 0.7)
+# print(albert.average_grade())
+
+# * Tip 23: 简单的接口应该接受函数，而不是类的实例
+
+# from collections import defaultdict
+
+
+# class BetterCounterMissing:
+#     def __init__(self):
+#         self.added = 0
+
+#     def __call__(self):
+#         self.added += 1
+#         print('New Key Added')
+#         return 0
+
+
+# current = {'green': 12, 'blue': 3}
+# increments = [
+#     ('red', 5),
+#     ('blue', 17),
+#     ('orange', 9),
+# ]
+
+# counter = BetterCounterMissing()
+# result = defaultdict(counter, current)
+# for key, amount in increments:
+#     result[key] += amount
+# print(result)
+# print(result['pink'])
+
+# * Tip 24: 以 @classmethod 形式的多态去通用地构建对象
