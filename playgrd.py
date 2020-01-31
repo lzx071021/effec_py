@@ -238,3 +238,11 @@
 # print(result['pink'])
 
 # * Tip 24: 以 @classmethod 形式的多态去通用地构建对象
+
+# * Tip 25: 用super初始化父类
+
+# * Tip 26: 只在使用 Mix-in 组件制作工具类时进行多重继承
+
+# * Tip 27: 多用 public 属性，少用 private 属性
+
+# * Tip 28: 继承 collections.abc 以实现自定义的容器类型
