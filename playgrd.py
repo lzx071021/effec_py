@@ -246,3 +246,25 @@
 # * Tip 27: 多用 public 属性，少用 private 属性
 
 # * Tip 28: 继承 collections.abc 以实现自定义的容器类型
+
+# Chapter 4  元类及属性
+
+# * Tip 29: 用纯属性取代get和set方法
+
+# * Tip 30: 考虑用 @property 来代替属性重构
+
+# * Tip 31: 用描述符来改写需要复用的 @property 方法
+
+# * Tip 32: 用 __getattr__、__getattribute__ 和 __setattr__ 实现按需生成的属性
+
+# * Tip 33: 用元类来验证子类
+
+# * Tip 34: 用元类来注册子类
+
+# * Tip 35: 用元类来注解类的属性
+
+# Chapter 5  并发及并行
+
+# Chapter 6  内置模块
+
+# * Tip 42:
