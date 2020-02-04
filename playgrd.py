@@ -267,4 +267,90 @@
 
 # Chapter 6  内置模块
 
-# * Tip 42:
+# * Tip 42: 用 functools.wraps 定义函数修饰器
+# from functools import wraps
+
+
+# def trace(func):
+#     @wraps(func)
+#     def wrapper(*args, **kwargs):
+#         result = func(*args, **kwargs)
+#         print('%s(%r, %r) -> %r' %
+#               (func.__name__, args, kwargs, result))
+#         return result
+#     return wrapper
+
+
+# @trace  # Equivalent to fibonacci = trace(fibonacci)
+# def fibonacci(n):
+#     if n in (0, 1):
+#         return n
+#     return fibonacci(n - 2) + fibonacci(n - 1)
+
+
+# fibonacci(3)
+# help(fibonacci)
+
+# * Tip 43: 考虑用 contextlib 和 with 语句来改写可复用的 try / finally 代码
+# import logging
+# from contextlib import contextmanager
+
+
+# @contextmanager
+# def debug_logging(level):
+#     logger = logging.getLogger()
+#     logger.setLevel(level)
+#     old_level = logger.getEffectiveLevel()
+#     try:
+#         yield logger
+#     finally:
+#         logger.setLevel(old_level)
+
+
+# def my_func():
+#     # logger = logging.getLogger()
+#     # logger.setLevel(logging.DEBUG)
+#     # logger.debug('debug data')
+#     # logger.error('error data')
+#     # logger.debug('more debug data')
+#     # logger.warning('warning data')
+
+#     logging.debug('debug data')
+#     logging.error('error data')
+#     logging.debug('more debug data')
+#     logging.warning('warning data')
+
+
+# with debug_logging(logging.DEBUG):
+#     print('Inside: ')
+#     my_func()
+
+# print('After: ')
+# my_func()
+
+# with debug_logging(logging.DEBUG) as logger:
+#     logger.debug('debug data')
+#     logging.debug('logging module debug data')  # This msg will not print
+
+# * Tip 44: 用 copyreg 实现可靠的 pickle 操作
+
+# * Tip 45: 应该用 datatime 模块来处理本地时间，而不是用 time 模块
+
+# * Tip 46: 使用内置算法与数据结构
+
+# * Tip 47: 在重视精确度的场合，应该使用 decimal
+
+# * Tip 48: 学会安装由 Python 开发者社区所构建的模块
+
+# Chapter 7  协作开发
+# * Tip 49: 为每个函数、类和模块编写文档字符串
+
+# * Tip 50: 用包来安排模块，并提供稳固的 API
+
+# * Tip 51: 为自编的模块定义根异常，以便将调用者与 API 相隔离
+
+# * Tip 52: 用适当的方式打破循环依赖关系
+
+# * Tip 53: 用虚拟环境隔离项目，并重建其依赖关系
+
+# Chapter 8  部署
