@@ -1,6 +1,6 @@
-# Playground for Effective Python: 55 Specific Ways to Write Better Python
+"""Playground for Effective Python: 55 Specific Ways to Write Better Python"""
 
-# Pythonic
+# Chpater 1  用 Pythonic 方式来思考
 # # * Tip 1: Know Which Version of Python You're Using
 # import sys
 
@@ -264,6 +264,18 @@
 # * Tip 35: 用元类来注解类的属性
 
 # Chapter 5  并发及并行
+# * Tip 36: 用 subprocess 模块来管理子进程
+
+# * Tip 37: 可以用线程来执行阻塞式 I/O，但不要用它做平行计算
+
+# * Tip 38: 在线程中使用 Lock 来防止数据竞争
+
+# * Tip 39: 用 Queue 来协调各协程之间的工作
+
+# * Tip 40: 考虑用协程来并发地运行多个函数
+
+# * Tip 41: 考虑用 concurrent.futures 来实现真正的平行计算
+
 
 # Chapter 6  内置模块
 
@@ -342,6 +354,7 @@
 
 # * Tip 48: 学会安装由 Python 开发者社区所构建的模块
 
+
 # Chapter 7  协作开发
 # * Tip 49: 为每个函数、类和模块编写文档字符串
 
@@ -352,6 +365,7 @@
 # * Tip 52: 用适当的方式打破循环依赖关系
 
 # * Tip 53: 用虚拟环境隔离项目，并重建其依赖关系
+
 
 # Chapter 8  部署
 # * Tip 54: 考虑用模块级别的代码来配置不同的部署环境
